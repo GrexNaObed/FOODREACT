@@ -1,0 +1,124 @@
+@import '../../../../scss/sampels.scss';
+@import '../../../../scss/vars.scss';
+
+.selectedCard {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+
+    &__left {
+        margin-right: 16px;
+        width: 100%;
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
+
+            &>img {
+                width: 100%;
+                max-width: 40px;
+                margin-right: 8px;
+            }
+        }
+
+        &-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+
+
+        }
+
+        &-title {
+            @extend %bodyNormalMedium;
+            width: 100%;
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 5px;
+        }
+
+        &-price {
+            @extend %bodyNormalMedium;
+            color: $lightCl;
+        }
+        &-count{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
+
+    // &__top {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     margin-bottom: 10px;
+
+    //     &-left {
+    //         display: flex;
+    //         align-items: center;
+
+    //         &>img {
+    //             width: 100%;
+    //             max-width: 40px;
+    //             margin-right: 8px;
+    //         }
+    //     }
+
+    //     &-right {
+    //         display: flex;
+    //         align-items: center
+    //     }
+    // }
+
+    // &__left {
+    //     margin-right: 21px;
+
+    //     &-title {
+    //         @extend %bodyNormalMedium;
+    //         width: 100%;
+    //         max-width: 200px;
+    //         white-space: nowrap;
+    //         overflow: hidden;
+    //         text-overflow: ellipsis;
+    //         margin-bottom: 5px;
+    //     }
+
+    //     &-price {
+    //         @extend %bodyNormalMedium;
+    //         color: $lightCl;
+    //     }
+    // }
+
+    // &__right {
+    //     &-count {
+    //         @extend %bodyLargeMedium;
+    //         margin-right: 21px;
+    //     }
+    // }
+
+    // &__bottom {
+    //     display: flex;
+    //     justify-content: space-between;
+
+    //     &-input {
+    //         width: 100%;
+    //         margin-right: 10px;
+    //     }
+    // }
+
+}

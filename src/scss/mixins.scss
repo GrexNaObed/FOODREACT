@@ -1,0 +1,12 @@
+@mixin container($mw,$pd) {
+    width: 100%;
+    max-width: $mw;
+    padding: 0 $pd;
+    // margin: 0 auto;
+}
+
+@mixin appFont($font,$fz,$fw) {
+    font-family: $font;
+    font-size: $fz;
+    font-weight: $fw;
+}

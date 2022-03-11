@@ -1,0 +1,57 @@
+@import './vars.scss';
+
+%headingH1{
+    font-size: $h1;
+    font-weight: $lgfw;
+    line-height: $hlh;
+    color: $appTxtCl;
+}
+
+%headingH2{
+    font-size: $h2;
+    font-weight: $lgfw;
+    line-height: 28px;
+    color: $appTxtCl;
+}
+
+%bodyLargeRegular{
+    font-size: $lgtxtfz;
+    font-weight: $rgfw;
+    line-height: $txtlh;
+    color: $lightCl;
+}
+
+%bodyLargeMedium{
+    font-size: $lgtxtfz;
+    font-weight: $mdfw;
+    line-height: $txtlh;
+    color: $lightCl;
+}
+
+%bodyLargeSemiBold{
+    font-size: $lgtxtfz;
+    font-weight: $lgfw;
+    line-height: $txtlh;
+    color: $lightCl;
+}
+
+%bodyNormalRegular{
+    font-size: $mdtxtfz;
+    font-weight: $rgfw;
+    line-height: $txtlh;
+    color: $appTxtCl;
+}
+
+%bodyNormalMedium{
+    font-size: $mdtxtfz;
+    font-weight: $mdfw;
+    line-height: $txtlh;
+    color: $appTxtCl;
+}
+
+%bodyNormalSemiBold{
+    font-size: $mdtxtfz;
+    font-weight: $lgfw;
+    line-height: $txtlh;
+    color: $appTxtCl;
+}

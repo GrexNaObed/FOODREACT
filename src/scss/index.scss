@@ -1,0 +1,16 @@
+@import './vars.scss';
+@import './settings.scss';
+@import './sampels.scss';
+@import './reset.scss';
+@import './mixins.scss';
+@import './fonts.scss';
+
+@import './common.scss';
+
+
+// Pages
+@import '../components/sideMenu/sideMenu.scss';
+@import '../components/pages/home/home.scss';
+
+@import '../components/ui/page/scss/card.scss';
+@import '../components/ui/page/scss/selectedCard.scss';

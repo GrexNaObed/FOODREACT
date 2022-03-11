@@ -1,0 +1,203 @@
+@import '../../../scss/sampels.scss';
+@import '../../../scss/vars.scss';
+
+.home {
+    padding: 24px 0;
+    position: relative;
+
+    &__sortList {
+        display: flex;
+        align-items: center;
+        margin-top: 12px;
+
+        padding-bottom: 13px;
+        padding-top: 12px;
+
+        border-bottom: 1px solid #393C49;
+        position: relative;
+
+        width: 100%;
+
+        &-item {
+            cursor: pointer;
+            position: relative;
+            margin-right: 32px;
+            display: block;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @extend %bodyNormalSemiBold;
+
+            &>span {
+                transition: all .3s ease;
+                pointer-events: none;
+            }
+
+            &:hover,
+            &.active {
+                &>span {
+                    color: $activeCl !important;
+                }
+
+            }
+
+            &:hover {
+                &~.home__sortList-target {
+                    transform: scaleX(1.4);
+                }
+            }
+        }
+
+        &-target {
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            max-width: 37px;
+            height: 3px;
+            background-color: $activeCl;
+            border-radius: 8px;
+            transition: all .5s ease-in-out;
+
+        }
+    }
+
+    &__chooseDishes {
+        margin-top: 24px;
+
+        &-cards {
+            margin-top: 58px;
+            display: flex;
+            flex-wrap: wrap;
+            transition: all .5s ease-in-out;
+            // justify-content: space-between;
+        }
+    }
+
+    &__chooseDishesTop {
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-title {
+            @extend %headingH2;
+        }
+    }
+
+    &__cart {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        max-width: 560px;
+        height: 100%;
+        padding: 24px;
+        background-color: #1F1D2B;
+
+        &-orders {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            // align-items: center;
+        }
+    }
+
+    &__orders {
+        &-cards {
+
+            overflow-x: hidden;
+            // max-height: 361px;
+            max-height: 515px;
+
+            &::-webkit-scrollbar {
+                -webkit-appearance: none;
+                width: 0;
+                background-color: transparent // width: 4px;
+                    // background-color: #fff;
+            }
+        }
+
+        &-title {
+            @extend %headingH2;
+            margin-bottom: 24px;
+        }
+
+        &-btns {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+
+            &>button {
+                margin-right: 8px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &-listTitles {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #393C49;
+            margin-bottom: 24px;
+
+            &>div {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &-listTitle {
+            display: block;
+            margin-right: 43px;
+            @extend %bodyLargeSemiBold;
+            color: #fff !important;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &-buttom {
+            margin-top: 24px;
+
+            &>div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+
+                &>span {
+                    &:first-child {
+                        @extend %bodyNormalRegular;
+                        color: $lightCl !important;
+                    }
+
+                    &:last-child {
+                        @extend %bodyLargeMedium;
+                        color: #fff !important;
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &-btn {
+            margin-top: 42px;
+            transition: transform .4s ease;
+            &:hover{
+                transform: scale(.97);
+            }
+        }
+    }
+}
