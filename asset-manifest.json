@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/FOODREACT/static/css/main.35fb0102.css",
+    "main.js": "/FOODREACT/static/js/main.bd5e3f49.js",
+    "static/media/card2.png": "/FOODREACT/static/media/card2.bcdbf259dffff155aee8.png",
+    "static/media/card4.png": "/FOODREACT/static/media/card4.9c4bf9a2868205a785d4.png",
+    "static/media/card8.png": "/FOODREACT/static/media/card8.46fd95e2dc568586ebce.png",
+    "static/media/card6.png": "/FOODREACT/static/media/card6.74e5a13677940b9c3c8b.png",
+    "static/media/card3.png": "/FOODREACT/static/media/card3.e887c6bc2225fbf86a52.png",
+    "static/media/card7.png": "/FOODREACT/static/media/card7.a7161096209665335e4b.png",
+    "static/media/card1.png": "/FOODREACT/static/media/card1.006d61b9be1aff262ee8.png",
+    "static/media/card5.png": "/FOODREACT/static/media/card5.33c685f865d3fad87631.png",
+    "static/media/search.svg": "/FOODREACT/static/media/search.5c784600c1ebd8a77b10c342e431405d.svg",
+    "static/media/logo.svg": "/FOODREACT/static/media/logo.dacd13a4a757f8cf02f98e0605039ac6.svg",
+    "static/media/arrowDown.svg": "/FOODREACT/static/media/arrowDown.cbad187b6adf6518d13162041c27ed6e.svg",
+    "index.html": "/FOODREACT/index.html",
+    "main.35fb0102.css.map": "/FOODREACT/static/css/main.35fb0102.css.map",
+    "main.bd5e3f49.js.map": "/FOODREACT/static/js/main.bd5e3f49.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35fb0102.css",
+    "static/js/main.bd5e3f49.js"
+  ]
+}
