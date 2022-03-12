@@ -1,5 +1,3 @@
-import { card1, card2, card3, card4, card5, card6, card7, card8 } from "img/export"
-
 export const ALL = 'ALL'
 export const HOTDISHES = 'HOTDISHES'
 export const COLDDISHES = 'COLDDISHES'

@@ -28,31 +28,6 @@ function SelectedCard({ foodImg = card1, title = 'title', price = 3.14, count = 
           <DeleteSVG />
         </button>
       </div>
-
-      {/* <div className="selectedCard__top">
-        <div className="selectedCard__top-left">
-          <img src={ foodImg } alt="" />
-          <div className="selectedCard__left-wrapper">
-            <h4 className="selectedCard__left-title">{ title }</h4>
-            <span className="selectedCard__left-price">$ { price }</span>
-          </div>
-        </div>
-        <div className="selectedCard__top-right">
-          <span className="selectedCard__right-count qty">{ count }</span>
-          <span
-            className='selectedCard__right-price'>
-            $ { Math.round(count * price) }
-          </span>
-        </div>
-      </div>
-      <div className="selectedCard__bottom">
-        <div className="selectedCard__bottom-input">
-          <Input />
-        </div>
-        <button className="selectedCard__bottom-btn delete-btn">
-          <DeleteSVG />
-        </button>
-      </div> */}
     </li>
   )
 }

@@ -91,18 +91,38 @@
         position: fixed;
         right: 0;
         top: 0;
-        width: 100%;
-        max-width: 560px;
+        // max-width: 814px;
+
         height: 100%;
-        padding: 24px;
         background-color: #1F1D2B;
+        display: flex;
+
 
         &-orders {
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            // align-items: center;
+            padding: 24px;
+            border-right: 1px solid #393C49;
+            // min-width: 409px;
+            min-width: 575px;
+            transition: display .5s ease;
+        }
+
+        &-confirm {
+            padding: 64px 24px 24px;
+            min-width: 390px;
+            transform: translateX(500%) scale(0);
+            visibility: hidden;
+            position: absolute;
+
+            transition: all .6s ease;
+
+            &.confirm {
+                transform: translateX(0) scale(1);
+                transition: all .6s ease;
+                visibility: visible;
+                position: relative;
+
+            }
         }
     }
 
@@ -111,13 +131,13 @@
 
             overflow-x: hidden;
             // max-height: 361px;
-            max-height: 515px;
+            // max-height: 515px;
+            max-height: 540px;
 
             &::-webkit-scrollbar {
                 -webkit-appearance: none;
                 width: 0;
-                background-color: transparent // width: 4px;
-                    // background-color: #fff;
+                background-color: transparent;
             }
         }
 
@@ -146,7 +166,7 @@
             justify-content: space-between;
             padding-bottom: 24px;
             border-bottom: 1px solid #393C49;
-            margin-bottom: 24px;
+            margin-bottom: 35px;
 
             &>div {
                 display: flex;
@@ -195,8 +215,205 @@
         &-btn {
             margin-top: 42px;
             transition: transform .4s ease;
-            &:hover{
+
+            &:hover {
                 transform: scale(.97);
+            }
+        }
+
+        &-confirmation {
+            &>button {
+                width: 24px;
+                height: 24px;
+                background-color: transparent;
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    &__confirm {
+        &-title {
+            @extend %headingH1;
+            margin-bottom: 8px;
+        }
+
+        &-subTitle {
+            @extend %bodyLargeMedium;
+            color: $lightCl;
+            display: block;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #393C49;
+        }
+
+        &-payment {
+            margin-bottom: 89px;
+        }
+    }
+
+    &__payment {
+        &-title {
+            @extend %headingH2;
+            margin-bottom: 18px;
+        }
+
+        &-types {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        &-type {
+            padding: 10px 30px;
+
+            &:first-child {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+
+            background-color: transparent;
+            border: 1px solid #393C49;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 8px;
+
+            width: 100%;
+            max-width: 101px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            transition: all .3s ease;
+            position: relative;
+
+            overflow: hidden;
+
+            &>svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            &>span {
+                @extend %bodyNormalMedium;
+                margin-top: 2px;
+                white-space: nowrap;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                right: 6px;
+                top: 6px;
+                display: block;
+                width: 16px;
+                height: 16px;
+                background: url('../../../img/selectPay.svg');
+                transition: all .4s ease;
+                top: -50%;
+            }
+
+
+            &:hover,
+            &.select {
+                border-color: $lightCl;
+                background-color: rgba($color: $lightCl, $alpha: .2);
+
+                &>svg>path {
+                    stroke: #fff;
+                }
+
+                &::after {
+                    display: block;
+                    top: 6px;
+                }
+            }
+        }
+
+        &-date {
+            display: flex;
+            align-items: center;
+            padding-bottom: 16px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #393C49;
+
+            &>label {
+                margin-right: 13px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &-btns {
+            display: flex;
+            align-items: center;
+
+            &>button {
+                margin-right: 8px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &-select {
+            margin-bottom: 89px;
+            display: flex;
+            align-items: center;
+
+            &>label:first-child {
+                margin-right: 13px;
+            }
+        }
+    }
+
+    &__confirmation {
+
+        &-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+
+            border-bottom: 1px solid #393C49;
+
+            &>button {
+                width: 48px;
+                height: 48px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: transparent;
+                // background-color: $activeCl;
+                border: 1px solid $activeCl;
+
+                transition: all .4s ease;
+
+                &:hover {
+                    background-color: $activeCl;
+                }
+            }
+        }
+
+        &-left {
+            &>h1 {
+                @extend %headingH1;
+                margin-bottom: 8px;
+            }
+
+            &>span {
+                @extend %bodyLargeMedium;
             }
         }
     }

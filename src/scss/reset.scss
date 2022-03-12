@@ -77,6 +77,10 @@ input {
     overflow: visible;
 }
 
+input[type="date"]{
+    font-family: 'Barlow', sans-serif;
+}
+
 button,
 select {
     text-transform: none;

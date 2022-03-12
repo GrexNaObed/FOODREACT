@@ -98,6 +98,7 @@
 
     &:hover {
         background-color: #FF7CA3;
+
         &>svg>path {
             fill: #fff;
         }
@@ -125,6 +126,7 @@
     background: #EA7C69;
     box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.3);
     border-radius: 8px;
+
     height: 48px;
 
     display: flex;
@@ -136,12 +138,13 @@
     @extend %bodyNormalSemiBold;
 }
 
-.input {
+.input,
+input[type="date"] {
     width: 100%;
     background-color: #2D303E;
     border: 1px solid #393C49;
     border-radius: 8px;
-    padding: 14px 88px 14px 14px;
+    padding: 14px;
     @extend %bodyNormalRegular;
 
     transition: background-color .3s ease;
@@ -149,6 +152,42 @@
     &:hover,
     &:focus {
         background-color: #1F1D2B;
+    }
+}
+
+.label {
+    display: block;
+    margin-bottom: 16px;
+    width: 100%;
+
+    &>span {
+        @extend %bodyNormalMedium;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    &>input {
+        margin-top: 8px;
+    }
+}
+
+
+.button {
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    background-color: transparent;
+    @extend %bodyNormalSemiBold;
+    white-space: nowrap;
+    color: $activeCl !important;
+    border: 1px solid $activeCl;
+    border-radius: 8px;
+
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: $activeCl;
+        color: #fff !important;
     }
 }
 
