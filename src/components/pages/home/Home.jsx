@@ -2,8 +2,10 @@ import SelectDate from 'components/ui/dropDown/SelectDate'
 import InputWithLabel from 'components/ui/input/InputWithLabel'
 import Card from 'components/ui/page/Card'
 import TopLine from 'components/ui/page/TopLine'
-import { arrowLeft, plus } from 'img/export'
+import { arrowLeft, card2, plus } from 'img/export'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCard } from 'redux/actions/cards'
 import ArrowLeftSVG from 'svg/ArrowLeftSVG'
 import CreditCardSVG from 'svg/CreditCardSVG'
 import PayPallSVG from 'svg/PayPallSVG'
@@ -11,13 +13,16 @@ import PlusSVG from 'svg/PlusSVG'
 import WalletSVG from 'svg/WalletSVG'
 import SelectedCard from '../../ui/page/SelectedCard'
 import { _cards } from './cards'
-import { ALL, sortListItems, _sortListItems } from './sortList'
+import { ALL, COLDDISHES, sortListItems, _sortListItems } from './sortList'
 
 function Home() {
 
   const [sortListTargetPosition, setSortListTargetPosition] = useState(0)
-  const [cards, setCards] = useState([])
+  // const [cards, setCards] = useState([])
   const [isContinuePayment, setIsContinuePayment] = useState(false)
+
+  const dispatch = useDispatch()
+  const { cards, cartCards } = useSelector(state => state.cards)
 
   const listRef = useRef()
   const cardRef = useRef()
@@ -52,11 +57,28 @@ function Home() {
 
   useEffect(() => {
     setSortListTargetPosition(() => listRef.current.querySelector('.home__sortList-item.active').offsetLeft)
-    setCards(() => _cards)
+    // setCards(() => _cards)
   }, [])
+
+  useEffect(() => {
+    console.log('reduce', cartCards.length ? [...cartCards].reduce((acc, next) => {
+      return {
+        acc: acc.price,
+        next: next.price
+      }
+    }) : 0)
+    console.log('cards', cartCards)
+    if (!cartCards.length) {
+      paymentRef.current.classList.remove('confirm')
+      setIsContinuePayment(() => false)
+      return
+    }
+  }, [cartCards])
 
 
   const continuePayment = (type) => () => {
+    if (!cartCards.length) return
+
     type === 'confirm'
       ? paymentRef.current.classList.add('confirm')
       : paymentRef.current.classList.remove('confirm')
@@ -136,8 +158,8 @@ function Home() {
                 </div>
               </Fragment>
               : <div className='home__orders-confirmation'>
-                <button onClick={continuePayment('cancel')}>
-                  <ArrowLeftSVG/>
+                <button onClick={ continuePayment('cancel') }>
+                  <ArrowLeftSVG />
                 </button>
                 <div className="home__confirmation-block">
                   <div className="home__confirmation-left">
@@ -155,12 +177,15 @@ function Home() {
           <ul className='home__orders-cards'>
 
             {
-              cards && cards.map(card =>
+              cartCards && cartCards.map(card =>
                 <SelectedCard
                   key={ card.id }
+                  id={ card.id }
                   foodImg={ card.img }
                   title={ card.title }
                   price={ card.price }
+                  classType={ card.class }
+                  paymentRef={ paymentRef }
                   // count={ _cards.filter(item=>item.type === card.type).length }
                   count={ card.count }
                 />
@@ -175,7 +200,13 @@ function Home() {
             </div>
             <div>
               <span>Sub total</span>
-              <span>$ 21,03</span>
+              <span>$
+                {
+                  cartCards && cartCards.length
+                    ? cartCards.reduce((acc, next) => acc + next)['price']
+                    : 0
+                }
+              </span>
             </div>
           </div>
           {

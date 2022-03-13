@@ -1,0 +1,28 @@
+.addedToCart {
+    animation: added 2s ease 0s 1 normal forwards;
+    transition: all .3s ease;
+}
+
+.removeFromCart {
+    animation: remove 2s ease 0s 1 normal forwards;
+    transition: all .3s ease;
+}
+
+
+@keyframes added {
+    0%{
+        transform: translateX(100%) scale(0);
+    }
+    100%{
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes remove {
+    0%{
+        transform: translateX(0%) scale(1);
+    }
+    100%{
+        transform: translateX(100%) scale(0);
+    }
+}

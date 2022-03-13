@@ -133,6 +133,7 @@
             // max-height: 361px;
             // max-height: 515px;
             max-height: 540px;
+            transition: max-height 4s ease;
 
             &::-webkit-scrollbar {
                 -webkit-appearance: none;

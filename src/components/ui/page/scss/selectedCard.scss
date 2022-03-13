@@ -6,6 +6,13 @@
     display: flex;
     justify-content: space-between;
 
+    transform: translateX(100%);
+    transition: transform .4s ease;
+
+    &.added {
+        transform: translateX(0);
+    }
+
     &__left {
         margin-right: 16px;
         width: 100%;
@@ -44,7 +51,8 @@
             @extend %bodyNormalMedium;
             color: $lightCl;
         }
-        &-count{
+
+        &-count {
             display: flex;
             align-items: center;
             justify-content: center;

@@ -1,11 +1,39 @@
 import { card1 } from 'img/export'
-import React from 'react'
+import React, { useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteFromCart } from 'redux/actions/cards'
 import DeleteSVG from 'svg/DeleteSVG'
 import Input from '../input/Input'
 
-function SelectedCard({ foodImg = card1, title = 'title', price = 3.14, count = 3, }) {
+function SelectedCard(config) {
+
+  const {
+    id,
+    foodImg = card1,
+    title = 'title',
+    price = 3.14,
+    classType = 'removed',
+    count = 3,
+  } = config
+
+  const dispatch = useDispatch()
+  const selectedCardRef = useRef()
+  const { cartCards } = useSelector(state => state.cards)
+
+  const deleteCardFromCart = () => {
+
+    selectedCardRef.current.classList.add('removeFromCart')
+    selectedCardRef.current.classList.remove('addedToCart')
+
+
+
+    setTimeout(() => {
+      dispatch(deleteFromCart({ id }))
+    }, 1000)
+  }
+
   return (
-    <li className='selectedCard'>
+    <li className={ `selectedCard ${classType}` } ref={ selectedCardRef }>
       <div className="selectedCard__left">
         <div className="selectedCard__left-top">
           <div className="selectedCard__left-wrapper">
@@ -22,9 +50,12 @@ function SelectedCard({ foodImg = card1, title = 'title', price = 3.14, count = 
         </div>
       </div>
       <div className="selectedCard__right">
-        <span className='selectedCard__right-price'>$ { `${Math.floor(count * price).toString()}`}</span>
+        <span className='selectedCard__right-price'>$ { `${Math.floor(count * price).toString()}` }</span>
 
-        <button className="selectedCard__right-btn delete-btn">
+        <button
+          className="selectedCard__right-btn delete-btn"
+          onClick={ deleteCardFromCart }
+        >
           <DeleteSVG />
         </button>
       </div>
