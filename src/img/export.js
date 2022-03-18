@@ -13,3 +13,5 @@ export { default as card8 } from './card8.png'
 
 export { default as arrowLeft } from './arrowLeft.svg'
 export { default as plus } from './plus.svg'
+
+export { default as user } from './user.png'

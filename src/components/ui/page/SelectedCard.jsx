@@ -9,16 +9,15 @@ function SelectedCard(config) {
 
   const {
     id,
-    foodImg = card1,
+    img = card1,
     title = 'title',
     price = 3.14,
     classType = 'removed',
-    count = 3,
+    taken,
   } = config
 
   const dispatch = useDispatch()
   const selectedCardRef = useRef()
-  const { cartCards } = useSelector(state => state.cards)
 
   const deleteCardFromCart = () => {
 
@@ -37,20 +36,20 @@ function SelectedCard(config) {
       <div className="selectedCard__left">
         <div className="selectedCard__left-top">
           <div className="selectedCard__left-wrapper">
-            <img src={ foodImg } alt="" />
+            <img src={ img } alt="" />
             <div className="selectedCard__left-inner">
               <h4 className="selectedCard__left-title">{ title }</h4>
-              <span className="selectedCard__left-price">$ { Math.floor(price) }</span>
+              <span className="selectedCard__left-price">$ { price }</span>
             </div>
           </div>
-          <span className="selectedCard__left-count qty">{ count }</span>
+          <span className="selectedCard__left-count qty">{ taken }</span>
         </div>
         <div className="selectedCard__left-bottom">
           <Input />
         </div>
       </div>
       <div className="selectedCard__right">
-        <span className='selectedCard__right-price'>$ { `${Math.floor(count * price).toString()}` }</span>
+        <span className='selectedCard__right-price'>$ { `${Math.floor(taken * price).toString()}` }</span>
 
         <button
           className="selectedCard__right-btn delete-btn"

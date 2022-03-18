@@ -61,13 +61,6 @@ function Home() {
   }, [])
 
   useEffect(() => {
-    console.log('reduce', cartCards.length ? [...cartCards].reduce((acc, next) => {
-      return {
-        acc: acc.price,
-        next: next.price
-      }
-    }) : 0)
-    console.log('cards', cartCards)
     if (!cartCards.length) {
       paymentRef.current.classList.remove('confirm')
       setIsContinuePayment(() => false)
@@ -124,14 +117,10 @@ function Home() {
         </div>
         <div className="home__chooseDishes-cards" ref={ cardRef }>
           {
-            cards && cards.map(card =>
+            cards && cards.map(_card =>
               <Card
-                key={ card.id }
-                foodImg={ card.img }
-                title={ card.title }
-                price={ card.price }
-                count={ card.count }
-                type={ card.type }
+                key={ _card.id }
+                { ..._card }
               />
             )
           }
@@ -177,17 +166,11 @@ function Home() {
           <ul className='home__orders-cards'>
 
             {
-              cartCards && cartCards.map(card =>
+              cartCards && cartCards.map(_card =>
                 <SelectedCard
-                  key={ card.id }
-                  id={ card.id }
-                  foodImg={ card.img }
-                  title={ card.title }
-                  price={ card.price }
-                  classType={ card.class }
-                  paymentRef={ paymentRef }
-                  // count={ _cards.filter(item=>item.type === card.type).length }
-                  count={ card.count }
+                  key={ _card.id }
+                  { ..._card }
+                  classType='addedToCart'
                 />
               )
 
@@ -203,7 +186,7 @@ function Home() {
               <span>$
                 {
                   cartCards && cartCards.length
-                    ? cartCards.reduce((acc, next) => acc + next)['price']
+                    ? Math.floor(cartCards.reduce((acc, next) => acc + (next.taken * next.price), 0))
                     : 0
                 }
               </span>
